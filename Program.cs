@@ -43,7 +43,7 @@ namespace BancoApp
            
             Console.WriteLine("Digite o nome: ");
             titulares.Add(Console.ReadLine());
-            Console.Write("Crie sua senha: ");
+            Console.Write("Crie a sua senha: ");
             senhas.Add(Console.ReadLine());
             saldos.Add(0);
         }
