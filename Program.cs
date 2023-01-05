@@ -9,7 +9,7 @@ namespace BancoApp
         static void MenuInicial()
         {
 
-
+                
             Console.WriteLine("1 - Inserir novo usuário");
             Console.WriteLine("2 - Deletar um usuário");
             Console.WriteLine("3 - Listar todas as contas registradas");
@@ -43,8 +43,27 @@ namespace BancoApp
            
             Console.WriteLine("Digite o nome: ");
             titulares.Add(Console.ReadLine());
-            Console.Write("Crie a sua senha: ");
-            senhas.Add(Console.ReadLine());
+            Console.Write("Crie sua senha: ");
+            string password = "";
+
+            while (true)
+            {
+                ConsoleKeyInfo key = Console.ReadKey(true);
+
+                // se o usuário digitou a tecla Enter, sair do loop
+                if (key.Key == ConsoleKey.Enter)
+                {
+                    break;
+                }
+                else
+                {
+                    // adicionar o caractere digitado à senha e imprimir um asterisco no lugar
+                    password += key.KeyChar;
+                    Console.Write("*");
+                }
+            }
+            senhas.Add(password);
+            Console.WriteLine();
             saldos.Add(0);
         }
 
@@ -176,9 +195,27 @@ namespace BancoApp
             {
 
                 Console.Write("Digite sua senha para o acesso: ");
-                senhaacesso = Console.ReadLine();
+                string password = "";
 
+                while (true)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey(true);
 
+                    // se o usuário digitou a tecla Enter, sair do loop
+                    if (key.Key == ConsoleKey.Enter)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        // adicionar o caractere digitado à senha e imprimir um asterisco no lugar
+                        password += key.KeyChar;
+                        Console.Write("*");
+                    }
+                }
+                senhaacesso = password;
+
+                Console.WriteLine();
 
                 while (!senhas.Contains(senhaacesso))
                 {
@@ -197,7 +234,7 @@ namespace BancoApp
                     Console.WriteLine("1 - Depositar dinheiro");
                     Console.WriteLine("2 - Transferir Dinheiro");
                     Console.WriteLine("3 - Sacar Dinheiro");
-                    Console.WriteLine("0 - Voltar");
+                    Console.WriteLine("0 - Deslogar");
 
                     escolhaoquefazer = Console.ReadLine();
 
